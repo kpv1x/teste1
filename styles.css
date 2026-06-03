@@ -9,12 +9,11 @@
   --brand-deep: #1d4ed8;
   --brand-soft: #e8f0ff;
   --success: #0f9f6e;
-  --success-soft: #e7f8f1;
   --danger: #dc5f3a;
   --danger-soft: #fff0ea;
-  --entry: #7c3aed;
-  --entry-soft: #f1ebff;
-  --shadow: 0 14px 34px rgba(23, 33, 43, 0.1);
+  --radius: 12px;
+  --shadow: 0 16px 40px rgba(23, 33, 43, 0.1);
+  --soft-shadow: 0 8px 24px rgba(23, 33, 43, 0.06);
 }
 
 * {
@@ -53,14 +52,6 @@ button {
   padding: calc(12px + env(safe-area-inset-top)) 12px calc(24px + env(safe-area-inset-bottom));
 }
 
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 12px;
-}
-
 .app-switch {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -68,14 +59,16 @@ button {
   margin-bottom: 14px;
   padding: 4px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.78);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(10px);
 }
 
 .switch-button {
   min-height: 46px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 9px;
   background: transparent;
   color: var(--muted);
   font-size: 0.9rem;
@@ -83,26 +76,18 @@ button {
 }
 
 .switch-button.is-active {
-  background: var(--brand);
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
   color: #fff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
 }
 
 .app-view[hidden] {
   display: none;
 }
 
-h1,
 h2 {
   margin: 0;
   letter-spacing: 0;
-}
-
-h1 {
-  font-size: clamp(1.8rem, 8vw, 2.25rem);
-  line-height: 1;
-}
-
-h2 {
   font-size: 1.12rem;
 }
 
@@ -122,9 +107,9 @@ h2 {
   min-height: 76px;
   padding: 10px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 8px 20px rgba(23, 33, 43, 0.05);
+  box-shadow: var(--soft-shadow);
 }
 
 .summary-card span {
@@ -164,9 +149,10 @@ h2 {
   min-height: 74px;
   padding: 10px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 8px 20px rgba(23, 33, 43, 0.05);
+  box-shadow: var(--soft-shadow);
+  text-align: center;
 }
 
 .mini-card.warning {
@@ -180,6 +166,7 @@ h2 {
   color: var(--muted);
   font-size: clamp(0.7rem, 2.8vw, 0.8rem);
   font-weight: 800;
+  text-align: center;
 }
 
 .mini-card strong {
@@ -187,6 +174,7 @@ h2 {
   font-size: clamp(0.9rem, 3.6vw, 1.12rem);
   line-height: 1.12;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .category-tabs {
@@ -208,7 +196,7 @@ h2 {
   min-height: 68px;
   align-content: center;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.82);
   color: var(--ink);
   font-weight: 800;
@@ -217,8 +205,9 @@ h2 {
 
 .category-tab.is-active {
   border-color: var(--brand);
-  background: var(--brand);
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
   color: #fff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.2);
 }
 
 .tab-label,
@@ -247,7 +236,7 @@ h2 {
   gap: 12px;
   padding: 14px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
 }
@@ -255,7 +244,7 @@ h2 {
 .raspa-panel {
   margin-bottom: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -271,7 +260,7 @@ h2 {
 
 .raspa-header {
   padding: 10px 12px;
-  background: var(--brand-soft);
+  background: linear-gradient(135deg, #eef4ff, var(--brand-soft));
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 900;
@@ -329,7 +318,7 @@ input {
   width: 100%;
   min-height: 50px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #fff;
   color: var(--ink);
   padding: 0 13px;
@@ -347,7 +336,7 @@ button:focus-visible {
   grid-template-columns: auto 1fr;
   align-items: center;
   border: 2px solid var(--brand);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #fff;
   overflow: hidden;
 }
@@ -376,14 +365,15 @@ button:focus-visible {
 .secondary-button {
   min-height: 62px;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--radius);
   font-size: 1.2rem;
   font-weight: 900;
 }
 
 .primary-button {
-  background: var(--brand);
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
   color: #fff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.2);
 }
 
 .secondary-button {
@@ -396,7 +386,7 @@ button:focus-visible {
   min-height: 42px;
   padding: 9px 12px;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--danger);
   color: #fff;
   font-weight: 900;
@@ -414,15 +404,6 @@ button:focus-visible {
   margin-bottom: 10px;
 }
 
-.text-button {
-  min-height: 40px;
-  padding: 8px;
-  border: 0;
-  background: transparent;
-  color: var(--danger);
-  font-weight: 800;
-}
-
 .history-list {
   display: grid;
   gap: 8px;
@@ -436,7 +417,7 @@ button:focus-visible {
   min-height: 68px;
   padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.82);
 }
 
@@ -486,7 +467,7 @@ button:focus-visible {
 .action-button {
   min-height: 44px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #fff;
   font-weight: 900;
 }
@@ -502,7 +483,7 @@ button:focus-visible {
 .empty-state {
   padding: 18px;
   border: 1px dashed var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   color: var(--muted);
   text-align: center;
 }
@@ -516,7 +497,7 @@ button:focus-visible {
   max-width: 420px;
   margin: 0 auto;
   padding: 14px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #17212b;
   color: #fff;
   font-weight: 800;

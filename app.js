@@ -198,7 +198,7 @@ raspaRedeemInput.addEventListener("keydown", (event) => {
   if (event.key !== "Enter") return;
 
   event.preventDefault();
-  raspaRedeemInput.blur();
+  focusRaspaCashCard();
 });
 
 document.querySelector("#clearRaspaButton").addEventListener("click", () => {
@@ -508,6 +508,17 @@ function focusNextRaspaInput(currentInput) {
 
   nextInput.scrollIntoView({ block: "center", behavior: "smooth" });
   requestAnimationFrame(() => nextInput.focus({ preventScroll: true }));
+}
+
+function focusRaspaCashCard() {
+  raspaRedeemInput.value = state.raspa.redeem
+    ? state.raspa.redeem.toLocaleString("pt-BR", { minimumFractionDigits: 2 })
+    : "";
+  raspaRedeemInput.blur();
+
+  const cashCard = document.querySelector("#raspaCashCard");
+  cashCard.scrollIntoView({ block: "start", behavior: "smooth" });
+  requestAnimationFrame(() => cashCard.focus({ preventScroll: true }));
 }
 
 function showToast(message) {
