@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Fechamento</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <nav class="app-switch" aria-label="Aplicativo">
+        <button class="switch-button is-active" type="button" data-view="fechamento">FECHAMENTO</button>
+        <button class="switch-button" type="button" data-view="raspadinha">RASPADINHA</button>
+      </nav>
+
+      <section class="app-view is-active" id="fechamentoView">
+        <header class="topbar">
+          <div>
+            <h1>Fechamento</h1>
+          </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Totais">
+          <article class="summary-card final">
+            <span>Final</span>
+            <strong id="finalTotal">R$ 0,00</strong>
+          </article>
+        </section>
+
+        <section class="category-tabs" aria-label="Categoria">
+          <button type="button" class="category-tab is-active" data-type="protege">Protege</button>
+          <button type="button" class="category-tab" data-type="saidas">Sa&iacute;das</button>
+          <button type="button" class="category-tab" data-type="entradas">Entradas</button>
+        </section>
+
+        <form class="entry-panel" id="entryForm">
+          <div class="amount-group">
+            <label for="amountInput" id="amountLabel">Valor em Protege</label>
+            <div class="amount-input">
+              <span>R$</span>
+              <input id="amountInput" name="amount" type="text" inputmode="numeric" enterkeyhint="done" autocomplete="off" placeholder="0,00" />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <label for="noteInput">Observa&ccedil;&atilde;o</label>
+            <input id="noteInput" name="note" type="text" maxlength="80" placeholder="Opcional" />
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-button" id="submitButton" type="submit">Lan&ccedil;ar</button>
+            <button class="secondary-button" id="cancelEditButton" type="button" hidden>Cancelar</button>
+          </div>
+        </form>
+
+        <section class="history-section" aria-label="Lancamentos">
+          <div class="section-heading">
+            <h2 id="historyTitle">Protege de hoje</h2>
+            <button id="clearDayButton" class="danger-action" type="button">Limpar dia</button>
+          </div>
+          <div class="history-list" id="historyList"></div>
+        </section>
+      </section>
+
+      <section class="app-view" id="raspadinhaView" hidden>
+        <header class="topbar">
+          <div>
+            <h1>Raspadinha</h1>
+          </div>
+        </header>
+
+        <section class="raspa-summary" aria-label="Resumo Raspadinha">
+          <article class="summary-card final">
+            <span>Dinheiro</span>
+            <strong id="raspaCashTotal">R$ 0,00</strong>
+          </article>
+          <article class="mini-card">
+            <span>Vendas</span>
+            <strong id="raspaSalesTotal">R$ 0,00</strong>
+          </article>
+          <article class="mini-card warning">
+            <span>Resgate</span>
+            <strong id="raspaRedeemTotal">R$ 0,00</strong>
+          </article>
+          <article class="mini-card">
+            <span>Comiss&atilde;o 5%</span>
+            <strong id="raspaCommissionTotal">R$ 0,00</strong>
+          </article>
+        </section>
+
+        <section class="raspa-panel">
+          <div class="raspa-header">
+            <span>Produto</span>
+            <span>In&iacute;cio</span>
+            <span>Final</span>
+          </div>
+          <div id="raspaProducts"></div>
+        </section>
+
+        <section class="entry-panel">
+          <div class="amount-group">
+            <label for="raspaRedeemInput">Resgate</label>
+            <div class="amount-input">
+              <span>R$</span>
+              <input id="raspaRedeemInput" type="text" inputmode="numeric" enterkeyhint="done" autocomplete="off" placeholder="0,00" />
+            </div>
+          </div>
+          <button id="clearRaspaButton" class="danger-action" type="button">Limpar dia</button>
+        </section>
+      </section>
+
+      <p class="privacy-note">Os lan&ccedil;amentos ficam salvos apenas neste aparelho durante o dia.</p>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
