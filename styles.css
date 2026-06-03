@@ -28,9 +28,10 @@ body {
     linear-gradient(180deg, #eef4ff 0, rgba(238, 244, 255, 0) 280px),
     var(--bg);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: contain;
+  text-rendering: optimizeLegibility;
 }
 
 button,
@@ -72,7 +73,7 @@ button {
   background: transparent;
   color: var(--muted);
   font-size: 0.9rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .switch-button.is-active {
@@ -89,6 +90,7 @@ h2 {
   margin: 0;
   letter-spacing: 0;
   font-size: 1.12rem;
+  font-weight: 800;
 }
 
 .summary-grid {
@@ -118,12 +120,14 @@ h2 {
   color: var(--muted);
   font-size: clamp(0.72rem, 3.1vw, 0.84rem);
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .summary-card strong {
   display: block;
   font-size: clamp(0.94rem, 4vw, 1.22rem);
   line-height: 1.12;
+  font-weight: 900;
   overflow-wrap: anywhere;
 }
 
@@ -165,14 +169,16 @@ h2 {
   margin-bottom: 5px;
   color: var(--muted);
   font-size: clamp(0.7rem, 2.8vw, 0.8rem);
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
+  letter-spacing: 0.01em;
 }
 
 .mini-card strong {
   display: block;
   font-size: clamp(0.9rem, 3.6vw, 1.12rem);
   line-height: 1.12;
+  font-weight: 900;
   overflow-wrap: anywhere;
   text-align: center;
 }
@@ -263,8 +269,13 @@ h2 {
   background: linear-gradient(135deg, #eef4ff, var(--brand-soft));
   color: var(--muted);
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
+}
+
+.raspa-header span:nth-child(2),
+.raspa-header span:nth-child(3) {
+  text-align: center;
 }
 
 .raspa-row {
@@ -285,13 +296,14 @@ h2 {
 .raspa-name strong {
   margin-bottom: 3px;
   font-size: 0.96rem;
+  font-weight: 800;
   overflow-wrap: anywhere;
 }
 
 .raspa-name span {
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .qty-input {
@@ -299,7 +311,7 @@ h2 {
   padding: 0 8px;
   text-align: center;
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .field-row,
@@ -311,7 +323,7 @@ h2 {
 label {
   color: var(--muted);
   font-size: 0.92rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 input {
@@ -345,7 +357,7 @@ button:focus-visible {
   padding-left: 14px;
   color: var(--brand);
   font-size: 1.45rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .amount-input input {
@@ -367,7 +379,7 @@ button:focus-visible {
   border: 0;
   border-radius: var(--radius);
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .primary-button {
@@ -389,7 +401,7 @@ button:focus-visible {
   border-radius: var(--radius);
   background: var(--danger);
   color: #fff;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .history-section {
@@ -432,6 +444,7 @@ button:focus-visible {
 
 .history-main strong {
   margin-bottom: 3px;
+  font-weight: 800;
 }
 
 .history-main span {
@@ -469,7 +482,7 @@ button:focus-visible {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .edit-button {
