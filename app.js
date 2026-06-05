@@ -54,6 +54,7 @@ document.querySelectorAll(".category-tab").forEach((button) => {
   button.addEventListener("click", () => {
     refreshDayIfNeeded();
     state.activeType = button.dataset.type;
+    updateClearDayButton();
     renderFechamento();
     focusAmountInput();
   });
@@ -261,7 +262,7 @@ function renderFechamento() {
   const activeLabel = TYPES[state.activeType];
   document.querySelector("#amountLabel").textContent = `Valor em ${activeLabel}`;
   document.querySelector("#historyTitle").textContent = `${activeLabel} de hoje`;
-  clearDayButton.textContent = `Limpar ${activeLabel}`;
+  updateClearDayButton();
 
   const finalTotal = totals.entradas + totals.protege - totals.saidas;
   document.querySelector("#finalTotal").textContent = currency.format(finalTotal);
@@ -368,6 +369,10 @@ function countsForSelectedDate() {
     },
     { protege: 0, entradas: 0, saidas: 0 },
   );
+}
+
+function updateClearDayButton() {
+  clearDayButton.textContent = `Limpar ${TYPES[state.activeType]}`;
 }
 
 function startEdit(id) {
