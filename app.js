@@ -34,6 +34,7 @@ const noteInput = document.querySelector("#noteInput");
 const form = document.querySelector("#entryForm");
 const submitButton = document.querySelector("#submitButton");
 const cancelEditButton = document.querySelector("#cancelEditButton");
+const clearDayButton = document.querySelector("#clearDayButton");
 const toast = document.querySelector("#toast");
 const raspaProducts = document.querySelector("#raspaProducts");
 const raspaRedeemInput = document.querySelector("#raspaRedeemInput");
@@ -260,6 +261,7 @@ function renderFechamento() {
   const activeLabel = TYPES[state.activeType];
   document.querySelector("#amountLabel").textContent = `Valor em ${activeLabel}`;
   document.querySelector("#historyTitle").textContent = `${activeLabel} de hoje`;
+  clearDayButton.textContent = `Limpar ${activeLabel}`;
 
   const finalTotal = totals.entradas + totals.protege - totals.saidas;
   document.querySelector("#finalTotal").textContent = currency.format(finalTotal);
